@@ -1,6 +1,7 @@
 import React from 'react';
 import './ExpenseDate.css'
 
+// make it another component in order to get the date/time/year
 const ExpenseDate = (props) => {
   const month = props.date.toLocaleString('en-US', { month: 'long' });
   const day = props.date.toLocaleString('en-US', { day: '2-digit' });
