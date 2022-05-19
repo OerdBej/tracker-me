@@ -25,9 +25,18 @@ const App = () => {
     },
   ];
 
+// to see if the data arrived here.
+  const addExpenseHandler = expense => {
+      console.log('In app js');
+      console.log(expense)
+  }
+
+
+
   return (
     <div>
-      <NewExpense />
+      {/* The same thing, passing as a props a function to new Expense. from app to newexpense and call it */}
+      <NewExpense onAddExpense = {addExpenseHandler}/>
       <Expenses items={expenses} />
     </div>
   );

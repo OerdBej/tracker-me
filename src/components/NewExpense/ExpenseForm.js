@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+// we have here a prop that is a function from new expense. into the submitHandler
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -30,10 +31,14 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
-    setEnteredTitle('');
-    setEnteredAmount('');
-    setEnteredDate('')
+    // console.log(expenseData);
+
+    // function props from onSaveExpenseData and execute it here. Passing as arguments the data from the object states that we are passsing to parameter to other component 
+    props.onSaveExpenseData(expenseData);
+    // Here we are setting it to an empty string AGAIN. OVER WRITE INPUT AND MAKE IT 0
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
   return (
     <form onSubmit={submitHandler}>
