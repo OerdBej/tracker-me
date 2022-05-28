@@ -3,6 +3,7 @@ import Expenses from "./components/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
+  // The goal to put users input here.
   const expenses = [
     {
       id: "e1",
@@ -25,18 +26,16 @@ const App = () => {
     },
   ];
 
-// to see if the data arrived here.
-  const addExpenseHandler = expense => {
-      console.log('In app js');
-      console.log(expense)
-  }
-
-
+  // to see if the data arrived here.
+  const addExpenseHandler = (expense) => {
+    console.log("In app js");
+    console.log(expense);
+  };
 
   return (
     <div>
       {/* The same thing, passing as a props a function to new Expense. from app to newexpense and call it */}
-      <NewExpense onAddExpense = {addExpenseHandler}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
