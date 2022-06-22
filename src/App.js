@@ -1,3 +1,5 @@
+// this was the first edition of the app.js
+
 import React, { useState } from "react";
 import Expenses from "./components/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
@@ -30,7 +32,7 @@ const App = () => {
 
   // to see if the data arrived here. this is trigered when new expense is put there.
   const addExpenseHandler = (expense) => {
-    //  update the state depending on the previous state. Arrow function with all the data from object states, and we update the state that we created for the dummy data. A function as an argument to update the state. random argument name... the data come from "expense" argument.
+    // so we use a function with all the data form expense to use it as paramater for the setexpense state in order to update the previus state with the latest data. dynamic list that get updated
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
