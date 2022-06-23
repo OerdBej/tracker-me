@@ -1,5 +1,11 @@
+import ExpenseItem from "./ExpenseItem";
+
 const App = () => {
-  return <h3>Hey</h3>;
+  return (
+    <>
+      <ExpenseItem />
+    </>
+  );
 };
 
 export default App;
