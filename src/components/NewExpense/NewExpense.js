@@ -2,14 +2,16 @@ import React from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
-const NewExpense = () => {
+// !getting the props from App.js
+const NewExpense = (props) => {
   // ! Parameter name arbitrary, get the data from props of ExpenseForm state object when it handles the FORM.
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    console.log(expenseData);
+    // !passing the props function from app.js, and passing the data to call it. This data came from another component ExpenseForm()
+    props.onAddExpense(expenseData);
   };
 
   return (
@@ -21,5 +23,3 @@ const NewExpense = () => {
 };
 
 export default NewExpense;
-
-// this component lives inside of App.js
