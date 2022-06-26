@@ -1,6 +1,8 @@
 import "./ExpenseForm.css";
 import { useState } from "react";
-const ExpenseForm = () => {
+
+// todo get the props from newExpense component.
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -16,22 +18,32 @@ const ExpenseForm = () => {
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
-    // when the form submited crate object
+
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
+
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
   return (
+    // ! Give us an object with data from saved states when clicked
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -40,6 +52,7 @@ const ExpenseForm = () => {
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
+            value={enteredAmount}
           />
         </div>
         <div className="new-expense__control">
@@ -50,6 +63,7 @@ const ExpenseForm = () => {
             min="2019-01-01"
             max="2022-12-31"
             onChange={dateChangeHandler}
+            value={enteredDate}
           />
         </div>
       </div>
@@ -60,5 +74,4 @@ const ExpenseForm = () => {
   );
 };
 
-// this component logic lives in NewExpense component
 export default ExpenseForm;
