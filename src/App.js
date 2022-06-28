@@ -24,6 +24,7 @@ const App = () => {
     },
   ];
 
+  // ! getting the data from newExpense
   const addExpenseHandler = (expense) => {
     console.log("This is from the App.js");
     console.log(expenses);
