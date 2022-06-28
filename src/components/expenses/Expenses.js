@@ -16,8 +16,11 @@ const Expenses = (props) => {
   return (
     <div>
       <Card className="expenses">
-        {/* this props is used and called on the other component */}
-        <ExpensesFilter onChangeFilter={filterChangeHandler} />
+        {/* this props is used and called on the other component. Since we are setting the current state to 2020 and we pass here another props, this can be used as a filter to triger the other component to be display. We use this props to other component */}
+        <ExpensesFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
         <ExpenseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
