@@ -19,6 +19,7 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
   };
 
+  // ! when data handler reset the states and call the functions with props.
   const submitHandler = (event) => {
     event.preventDefault();
 
