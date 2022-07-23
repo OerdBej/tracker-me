@@ -23,12 +23,13 @@ const Expenses = (props) => {
           onChangeFilter={filterChangeHandler}
         />
 
-        {/* We have accesss to APP data via props. Dynamic data expression JSX*/}
+        {/* We have accesss to APP data via props. Dynamic data expression array with dynamic JSX.*/}
         {props.items.map((expense) => (
           <ExpenseItem
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
+            key={expense.id}
           />
         ))}
       </Card>

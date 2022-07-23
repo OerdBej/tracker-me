@@ -16,7 +16,7 @@ const NewExpense = (props) => {
 
   return (
     <div className="new-expense">
-      {/* //!Function triggered when something happen to this component.Receives the value above. The pointer is passed to ExpenseForm */}
+      {/* Function triggered when something happen to this component.Receives the value above. When the form is submited. The pointer is passed to ExpenseForm */}
       <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
