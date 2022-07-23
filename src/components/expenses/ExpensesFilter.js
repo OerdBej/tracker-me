@@ -9,8 +9,8 @@ const ExpensesFilter = (props) => {
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        {/* get the input value from user and store it as pointe the function to be triggered. 2 way binding: updating the value of the selected while passing the props from Expenses */}
 
+        {/* value => received from parent component. Both onChange and Value are not part of this but from PARENT*/}
         <select value={props.selected} onChange={dropdownChangeHandler}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
