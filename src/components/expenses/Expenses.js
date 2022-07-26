@@ -8,23 +8,26 @@ import { useState } from "react";
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2022");
 
-  // pass a function here to call expenses component when something happen to dropdownChangeHandler and the input change something. Whenever the handlerFunction executed when can update the state with the parameter received
-
   // this control the expenses Filter here is the logic there is just UI. Controled component
   const filterChangeHandler = (selectYear) => {
     setFilteredYear(selectYear);
   };
+
+  // props from app.js -> converting the state string and checking it with state. Boolean
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <Card className="expenses">
-        {/* this props is used and called on the other component. Since we are setting the current state to 2020 and we pass here another props, this can be used as a filter to triger the other component to be display. We use this props to other component */}
         <ExpensesFilter
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
 
-        {/* We have accesss to APP data via props. Dynamic data expression array with dynamic JSX.*/}
-        {props.items.map((expense) => (
+        {/* Filter() new array. on this we use to check conditions to render*/}
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
             title={expense.title}
             amount={expense.amount}

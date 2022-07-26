@@ -3,9 +3,8 @@ import "./ExpenseItem.css";
 import Card from "../UI/Card";
 import { useState } from "react";
 
-// todo multiple props. Getting props from app.js passing to this component and passing to expense component
+// gettin props from app.js and passing to expense component.
 const ExpenseItem = (props) => {
-  // an array
   const [title, setTitle] = useState(props.title);
 
   const clickHandler = () => {

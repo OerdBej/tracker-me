@@ -26,13 +26,8 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  // ! getting the data from newExpense: to update the expense array with the DATA that we get here, useState
+  //  liftin the state up and populating it with data
   const addExpenseHandler = (expense) => {
-    // LIFTING STATE UP, UPDATING THE LIST WITH PREVIOUS DATA TO GET THE LATEST DATA
-
-    // console.log("This is from the App.js");
-    // console.log(expenses);
-
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
@@ -40,8 +35,10 @@ const App = () => {
 
   return (
     <div>
+      {/* we need to update the data that we have received so we need USESTATE (UPDATE PREV STATE) */}
       <NewExpense onAddExpense={addExpenseHandler} />
-      {/* this expense component need now the data from lifting state up */}
+      {/* this expense component need now the data from lifting state up. so all data are passed here */}
+      {/* when we filter we pass raw state data */}
       <Expenses items={expenses} />
     </div>
   );
