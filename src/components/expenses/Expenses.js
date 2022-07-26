@@ -18,6 +18,18 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  let expensesContent = "No data Found";
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+        key={expense.id}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expenses">
@@ -25,16 +37,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-
-        {/* Filter() new array. on this we use to check conditions to render*/}
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-            key={expense.id}
-          />
-        ))}
+        {expensesContent}
       </Card>
     </div>
   );
