@@ -15,6 +15,7 @@ const Expenses = (props) => {
 
   // props from app.js -> converting the state string and checking it with state. Boolean
   const filteredExpenses = props.items.filter((expense) => {
+    // filter in terms of DATA OBJECT FROM APP.JS
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
@@ -25,7 +26,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {/* passing as a props the filter() */}
+        {/* passing as a props the filter() -> filter by YEAR -> RETURN DATA OBJECT*/}
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
