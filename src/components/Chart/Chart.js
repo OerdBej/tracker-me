@@ -15,8 +15,9 @@ const Chart = (props) => {
           key={dataPoint.label}
           // data point is an object which has a value of property
           value={dataPoint.value}
-          maxValue={totalMaximum}
           label={dataPoint.label}
+          // 🚨 beautiful -> unique for each chart
+          maxValue={totalMaximum}
         />
       ))}
     </div>

@@ -3,7 +3,6 @@ import "./ExpenseItem.css";
 import Card from "../UI/Card";
 import { useState } from "react";
 
-// gettin props from app.js and passing to expense component.
 const ExpenseItem = (props) => {
   const [title, setTitle] = useState(props.title);
 

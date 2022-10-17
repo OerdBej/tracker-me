@@ -1,8 +1,6 @@
 import Chart from "../Chart/Chart";
 
 const ExpensesChart = (props) => {
-  // setting up the data points. The data is expensed to be an object when we access them in the Chart.js map(). expensesFilter -> as a props.
-
   const chartDataPoints = [
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },
@@ -18,7 +16,6 @@ const ExpensesChart = (props) => {
     { label: "Dec", value: 0 },
   ];
 
-  // loop expense in a loop as a props. January is 0
   for (const expense of props.expenses) {
     const expenseMonth = expense.date.getMonth();
     chartDataPoints[expenseMonth].value += expense.amount;

@@ -26,7 +26,6 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  //  liftin the state up and populating it with data when new expenses added. Use State to update the component to rerender. Passing a function as a argument
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
@@ -35,10 +34,8 @@ const App = () => {
 
   return (
     <div>
-      {/* we need to update the data that we have received so we need USESTATE (UPDATE PREV STATE) */}
       <NewExpense onAddExpense={addExpenseHandler} />
-      {/* this expense component need now the data from lifting state up. so all data are passed here */}
-      {/* Attention -> the lastest update to state because when we filter we pass raw state data */}
+
       <Expenses items={expenses} />
     </div>
   );
